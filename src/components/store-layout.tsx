@@ -112,12 +112,12 @@ export function StoreLayout({ children }: { children: ReactNode }) {
           <div>
             <h3 className="mb-5 text-xs font-bold uppercase tracking-widest">Shop</h3>
             <div className="flex flex-col gap-3 text-sm opacity-80">
-              <Link to="/shop?category=smartphones">Smartphones</Link>
-              <Link to="/shop?category=computers">MacBooks</Link>
-              <Link to="/shop?category=tablets">iPads & Tablets</Link>
-              <Link to="/shop?category=gaming">PS5 & Gaming</Link>
-              <Link to="/shop?category=audio">Headphones & Audio</Link>
-              <Link to="/shop?category=wearables">Apple Watch</Link>
+              <Link to="/shop" search={{ category: "smartphones" }}>Smartphones</Link>
+              <Link to="/shop" search={{ category: "computers" }}>MacBooks</Link>
+              <Link to="/shop" search={{ category: "tablets" }}>iPads & Tablets</Link>
+              <Link to="/shop" search={{ category: "gaming" }}>PS5 & Gaming</Link>
+              <Link to="/shop" search={{ category: "audio" }}>Headphones & Audio</Link>
+              <Link to="/shop" search={{ category: "wearables" }}>Apple Watch</Link>
             </div>
           </div>
           <div>
