@@ -1,3 +1,29 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { StoreLayout } from '@/components/store-layout';
-export const Route=createFileRoute('/shipping')({head:()=>({meta:[{title:'Shipping & Returns | Boss Up Trades'},{name:'description',content:'Shipping and returns information for Boss Up Trades orders.'},{property:'og:title',content:'Shipping & Returns | Boss Up Trades'},{property:'og:description',content:'Shipping and returns information.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary'}]}),component:()=> <StoreLayout><section className="mx-auto max-w-3xl px-5 py-20"><h1 className="text-4xl font-bold">Shipping & returns</h1><p className="mt-6 leading-relaxed text-muted-foreground">Shipping options, costs, delivery times and return arrangements are confirmed with you before your order is fulfilled. Please contact the store for details specific to your location and product.</p></section></StoreLayout>});
+import { createFileRoute } from "@tanstack/react-router";
+import { StoreLayout } from "@/components/store-layout";
+export const Route = createFileRoute("/shipping")({
+  head: () => ({
+    meta: [
+      { title: "Shipping & Returns | Boss Up Trades" },
+      {
+        name: "description",
+        content: "Shipping and returns information for Boss Up Trades orders.",
+      },
+      { property: "og:title", content: "Shipping & Returns | Boss Up Trades" },
+      { property: "og:description", content: "Shipping and returns information." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
+  component: () => (
+    <StoreLayout>
+      <section className="mx-auto max-w-3xl px-5 py-20">
+        <h1 className="text-4xl font-bold">Shipping & returns</h1>
+        <p className="mt-6 leading-relaxed text-muted-foreground">
+          Shipping options, costs, delivery times and return arrangements are confirmed with you
+          before your order is fulfilled. Please contact the store for details specific to your
+          location and product.
+        </p>
+      </section>
+    </StoreLayout>
+  ),
+});

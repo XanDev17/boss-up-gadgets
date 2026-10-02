@@ -144,5 +144,9 @@
     color: var(--color-foreground);
     font-family: "DM Sans", sans-serif;
   }
-  h1, h2, h3 { font-family: "Manrope", sans-serif; }
+  h1,
+  h2,
+  h3 {
+    font-family: "Manrope", sans-serif;
+  }
 }

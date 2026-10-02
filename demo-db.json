@@ -1,0 +1,93 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "slug": "studio-wireless-headphones",
+      "name": "Studio Wireless Headphones",
+      "category": "Audio",
+      "price": 189,
+      "original_price": 229,
+      "rating": 4.9,
+      "description": "Immerse yourself in rich, balanced sound with all-day comfort and seamless wireless listening.",
+      "features": [
+        "Active noise cancellation",
+        "Up to 40 hours battery life",
+        "Ultra-soft memory foam cushions",
+        "Fast USB-C charging"
+      ],
+      "image_position": "top left",
+      "stock": 17,
+      "featured": true,
+      "created_at": "2026-10-02T16:03:43.357Z",
+      "updated_at": "2026-10-02T17:32:46.715Z",
+      "new_arrival": true
+    },
+    {
+      "id": "2",
+      "slug": "compact-mirrorless-camera",
+      "name": "Compact Mirrorless Camera",
+      "category": "Cameras",
+      "price": 749,
+      "original_price": 899,
+      "rating": 4.8,
+      "description": "Capture every detail with a compact camera designed for everyday creativity.",
+      "features": [
+        "24MP high-resolution sensor",
+        "4K video recording",
+        "Fast autofocus",
+        "Lightweight travel-ready design"
+      ],
+      "image_position": "top right",
+      "stock": 7,
+      "featured": true,
+      "created_at": "2026-10-02T16:03:43.357Z",
+      "updated_at": "2026-10-02T17:32:49.431Z",
+      "new_arrival": true
+    },
+    {
+      "id": "4oaieg71rwg",
+      "slug": "yam",
+      "name": "yam",
+      "category": "shoes",
+      "price": 20,
+      "original_price": null,
+      "rating": 5,
+      "description": "f4rf \n\nefrf ",
+      "features": [],
+      "image_position": "center",
+      "stock": 10,
+      "featured": true,
+      "created_at": "2026-10-02T16:07:24.636Z",
+      "updated_at": "2026-10-02T17:32:44.756Z",
+      "new_arrival": true
+    }
+  ],
+  "orders": [
+    {
+      "id": "ql0tu3g4f5b",
+      "customer_name": "swqsqs",
+      "email": "kwesiwindsurf@gmail.com",
+      "phone": "874965727",
+      "address": "Accra",
+      "total": 189,
+      "status": "new",
+      "created_at": "2026-10-02T16:18:29.889Z",
+      "updated_at": "2026-10-02T16:18:29.889Z"
+    }
+  ],
+  "order_items": [
+    {
+      "id": "0qzo4se424mk",
+      "product_id": "1",
+      "quantity": 1,
+      "unit_price": 189,
+      "order_id": "ql0tu3g4f5b"
+    }
+  ],
+  "admins": [
+    {
+      "username": "admin",
+      "password": "admin"
+    }
+  ]
+}
