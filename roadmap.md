@@ -1,0 +1,5 @@
+- [x] Prioritize Shop: desktop sidebar filters, grid/list, mobile drawer and 2-column grid.
+- [x] Build Home, About, product details, cart/checkout and WhatsApp ordering.
+- [x] Build private admin dashboard with sample metrics and charts.
+- [x] Verify desktop/mobile Shop filters, product/cart flow, and checkout order confirmation.
+- [ ] Replace sample products, confirm shipping/payment/returns policies, provide a WhatsApp number, and grant an administrator role before publishing. Blocked on real store details and an authorized admin account.
