@@ -27,10 +27,10 @@ function getBotReply(input: string): string {
   const lower = input.toLowerCase();
   for (const key of Object.keys(BOT_RESPONSES)) {
     if (key !== "default" && lower.includes(key)) {
-      return BOT_RESPONSES[key];
+      return BOT_RESPONSES[key] as string;
     }
   }
-  return BOT_RESPONSES.default;
+  return BOT_RESPONSES["default"] as string;
 }
 
 export function ChatBot() {

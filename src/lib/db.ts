@@ -10,7 +10,7 @@ export interface Product {
   description: string;
   features: string[];
   image_position: string;
-  image_url?: string;
+  image_url?: string | undefined;
   stock: number; // Total stock
   stock_accra?: number;
   stock_bolga?: number;

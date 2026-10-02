@@ -244,7 +244,7 @@ function Admin(){
                                 <img src={p.image_url || imageFor(p.image_position)} alt={p.name} className="w-10 h-10 object-cover rounded bg-secondary" />
                                 <div className="font-semibold flex items-center gap-2">
                                   {p.name}
-                                  {p.featured && <Star size={14} className="fill-primary text-primary" title="Featured Product" />}
+                                  {p.featured && <Star size={14} className="fill-primary text-primary" />}
                                   {p.new_arrival && <span className="text-[10px] bg-primary text-primary-foreground px-1.5 py-0.5 rounded-full uppercase tracking-wider">New</span>}
                                 </div>
                               </td>

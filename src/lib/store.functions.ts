@@ -120,7 +120,7 @@ export const addProduct = createServerFn({ method: "POST" })
       store_location: data.store_location,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
-    };
+    } as Product;
     db.products.push(newProduct);
     await writeDb(db);
     return newProduct;
@@ -149,6 +149,7 @@ export const editProduct = createServerFn({ method: "POST" })
 
     db.products[productIndex] = {
       ...db.products[productIndex],
+      id: db.products[productIndex]!.id,
       name: data.name,
       category: data.category,
       price: data.price,
@@ -161,7 +162,7 @@ export const editProduct = createServerFn({ method: "POST" })
       store_location: data.store_location,
       image_url: data.image_url || undefined,
       updated_at: new Date().toISOString(),
-    };
+    } as Product;
 
     await writeDb(db);
     return db.products[productIndex];
