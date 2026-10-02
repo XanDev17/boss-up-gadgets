@@ -107,7 +107,7 @@ function Admin(){
 
   return (
     <div className="min-h-screen bg-secondary text-foreground">
-      <header className="sticky top-0 z-30 flex h-17 items-center justify-between border-b border-border bg-background px-5 sm:px-8">
+      <header className="relative z-30 flex h-17 items-center justify-between border-b border-border bg-background px-5 sm:px-8">
         <div className="flex items-center gap-4 text-primary">
           <Wordmark/>
           <span className="hidden border-l border-border pl-4 text-xs font-bold uppercase tracking-widest text-muted-foreground sm:block">Admin Demo</span>

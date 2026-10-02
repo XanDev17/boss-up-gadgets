@@ -31,7 +31,7 @@ export function StoreLayout({ children }: { children: ReactNode }) {
       <div className="bg-primary px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[.16em] text-primary-foreground sm:text-xs">
         Accra · Bolgatanga · Nationwide delivery
       </div>
-      <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur-md">
+      <header className="relative z-40 border-b border-border bg-background">
         <div className="mx-auto grid h-17 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-5 sm:h-20 sm:px-8 lg:px-12">
           <Button
             variant="ghost"
