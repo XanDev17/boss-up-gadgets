@@ -1,6 +1,4 @@
-import fs from "fs/promises";
-import path from "path";
-
+// fs/promises and path removed for Edge compatibility
 export interface Product {
   id: string;
   slug: string;
@@ -50,7 +48,6 @@ interface Database {
   admins: { username: string; password: string }[];
 }
 
-const DB_PATH = path.join(process.cwd(), "demo-db.json");
 
 const defaultDb: Database = {
   products: [
@@ -111,17 +108,12 @@ const defaultDb: Database = {
   admins: [{ username: "admin", password: "admin" }],
 };
 
+let memoryDb: Database = { ...defaultDb };
+
 export async function readDb(): Promise<Database> {
-  try {
-    const data = await fs.readFile(DB_PATH, "utf-8");
-    return JSON.parse(data);
-  } catch (error) {
-    // If file doesn't exist, create it with default data
-    await writeDb(defaultDb);
-    return defaultDb;
-  }
+  return memoryDb;
 }
 
 export async function writeDb(db: Database): Promise<void> {
-  await fs.writeFile(DB_PATH, JSON.stringify(db, null, 2), "utf-8");
+  memoryDb = { ...db };
 }
