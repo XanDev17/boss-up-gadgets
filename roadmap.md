@@ -1,0 +1,4 @@
+- [ ] Prioritize Shop: desktop sidebar filters, grid/list, mobile drawer and 2-column grid.
+- [ ] Build Home, About, product details, cart/checkout and WhatsApp ordering.
+- [ ] Build private admin dashboard with sample metrics and charts.
+- [ ] Verify desktop/mobile shopping flow and publish readiness.
