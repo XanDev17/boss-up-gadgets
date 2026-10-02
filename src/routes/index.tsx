@@ -1,24 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight, Camera, Headphones, Watch, Speaker, Truck, ShieldCheck, RotateCcw } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { StoreLayout, SectionTitle } from '@/components/store-layout';
+import { ProductCard } from '@/components/store-ui';
+import { getProducts } from '@/lib/store.functions';
+import hero from '@/assets/gadget-hero.jpg';
+const query={queryKey:['products'],queryFn:()=>getProducts()};
+export const Route=createFileRoute('/')({loader:({context})=>context.queryClient.ensureQueryData(query),head:()=>({meta:[{title:'Boss Up Trades | Gadgets for Every Day'},{name:'description',content:'Explore thoughtfully chosen gadgets for work, play and everything in between at Boss Up Trades.'},{property:'og:title',content:'Boss Up Trades | Gadgets for Every Day'},{property:'og:description',content:'Thoughtfully chosen technology for everyday living.'},{property:'og:type',content:'website'},{name:'twitter:card',content:'summary_large_image'}]}),component:Home});
+function Home(){const {data:products}=useSuspenseQuery(query);const [slide,setSlide]=useState(0);const featured=products.filter(p=>p.featured);const current=featured[slide%featured.length];return <StoreLayout><section className="relative isolate min-h-[500px] overflow-hidden bg-secondary sm:min-h-[570px]"><img src={hero} alt="A curated collection of headphones, camera, smartwatch and speaker" width={1600} height={900} className="absolute inset-0 h-full w-full object-cover object-[62%_center] opacity-65 sm:opacity-100"/><div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent sm:via-background/65"/><div className="relative mx-auto flex min-h-[500px] max-w-7xl items-center px-6 py-16 sm:min-h-[570px] sm:px-8 lg:px-12"><div className="max-w-xl"><p className="mb-5 text-xs font-bold uppercase tracking-[.22em] text-accent-foreground">Welcome to Boss Up Trades</p><h1 className="text-5xl font-bold leading-[1.08] sm:text-6xl lg:text-7xl">Tech that moves <span className="text-accent-foreground">with you.</span></h1><p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">Everyday essentials, thoughtfully chosen. Discover gadgets that do more, wherever life takes you.</p><Button asChild size="lg" className="mt-8"><Link to="/shop">Shop the collection <ArrowRight/></Link></Button></div></div></section>
+ <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12"><div className="grid grid-cols-3 gap-4 border-b border-border py-6 text-center text-[10px] font-semibold uppercase tracking-wider sm:text-xs"><span className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center"><Truck size={19} className="text-accent-foreground"/> Fast shipping</span><span className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center"><ShieldCheck size={19} className="text-accent-foreground"/> Quality checked</span><span className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center"><RotateCcw size={19} className="text-accent-foreground"/> Easy returns</span></div>
+ <section className="py-16 sm:py-20"><SectionTitle eyebrow="The edit" title="Featured right now" action={{label:'Shop all',to:'/shop'}}/><div className="grid gap-5 bg-secondary sm:grid-cols-[1fr_1fr] sm:items-center"><div className="aspect-[4/3] overflow-hidden sm:aspect-[5/4]"><img src={hero} alt="Featured gadgets" width={1600} height={900} className="h-full w-full object-cover object-right"/></div><div className="px-6 pb-8 sm:px-10 sm:py-8"><p className="text-xs font-bold uppercase tracking-widest text-accent-foreground">0{slide+1} / 0{featured.length} · {current.category}</p><h3 className="mt-5 text-3xl font-bold sm:text-4xl">{current.name}</h3><p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">{current.description}</p><div className="mt-6 flex items-center justify-between gap-4"><Button asChild><Link to="/product/$slug" params={{slug:current.slug}}>Shop now <ArrowRight/></Link></Button><div className="flex gap-2"><Button variant="outline" size="icon" aria-label="Previous featured product" onClick={()=>setSlide((slide+featured.length-1)%featured.length)}><ChevronLeft/></Button><Button variant="outline" size="icon" aria-label="Next featured product" onClick={()=>setSlide((slide+1)%featured.length)}><ChevronRight/></Button></div></div></div></div></section>
+ <section className="pb-16 sm:pb-20"><SectionTitle eyebrow="Find your fit" title="Browse by category"/><div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">{[{name:'Audio',icon:Headphones},{name:'Cameras',icon:Camera},{name:'Wearables',icon:Watch},{name:'Smart Home',icon:Speaker}].map(({name,icon:Icon})=><Link key={name} to="/shop" className="group flex min-h-32 flex-col justify-between border border-border bg-secondary p-5 transition-colors hover:border-primary sm:min-h-40"><Icon className="h-7 w-7 text-accent-foreground" strokeWidth={1.5}/><span className="flex items-center justify-between text-sm font-bold sm:text-base">{name}<ArrowRight size={17} className="transition-transform group-hover:translate-x-1"/></span></Link>)}</div></section>
+ <section className="pb-16 sm:pb-20"><SectionTitle eyebrow="Fresh finds" title="New arrivals" action={{label:'View all products',to:'/shop'}}/><div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-7 lg:max-w-4xl">{products.slice(0,4).map(product=><ProductCard key={product.id} product={product}/>)}</div></section>
+ <section className="border-t border-border py-14 sm:py-20"><SectionTitle eyebrow="The journal" title="Gadget tips & ideas"/><div className="grid gap-6 sm:grid-cols-2"><article className="border-t-2 border-primary pt-5"><p className="text-xs font-bold uppercase tracking-widest text-accent-foreground">Buying guide · 5 min read</p><h3 className="mt-4 max-w-sm text-2xl font-bold">Find your everyday audio setup</h3><p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">From focused listening to room-filling sound, the right device changes how your day feels.</p></article><article className="border-t-2 border-primary pt-5"><p className="text-xs font-bold uppercase tracking-widest text-accent-foreground">Gadget tips · 3 min read</p><h3 className="mt-4 max-w-sm text-2xl font-bold">Make more of your daily tech</h3><p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">Small habits and smart choices to get the most from the gadgets you use every day.</p></article></div></section></div></StoreLayout>}
